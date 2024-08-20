@@ -75,7 +75,7 @@ const submitLogout = ()=>{
                         <button @click="modal" class="hover:underline underline-offset-4 transition-all">Profile</button>
                     </li>
                 </div>
-                <div v-else class="flex text-base space-x-10 "> 
+                <div v-else class="flex text-base flex-col space-y-5 "> 
                     <li>
                     <router-link :to="{ name: 'login' }" active-class="text-red-500" class="p-2 hover:underline underline-offset-4 transition-all">
                         Login

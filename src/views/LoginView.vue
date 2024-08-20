@@ -52,7 +52,7 @@ const handleSubmit = ()=>{
             </form>
         </div>
         <div class="w-full h-full grid grid-cols-1 place-items-center">
-            <img src="https://cdn-icons-png.flaticon.com/512/6684/6684500.png" alt=""
+            <img src="https://cdn-icons-png.flaticon.com/512/4105/4105459.png" alt=""
                 class="w-[60%] h-[60%] object-contain drop-shadow-xl">
         </div>
      </section>
