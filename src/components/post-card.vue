@@ -13,11 +13,11 @@ const formattedDate = computed(()=>{
     const formattedDate = date.toLocaleDateString();
     return formattedDate;
 })
-console.log(postProps.post)
+
 </script>
 
 <template>
-  <div class="relative group h-full">
+  <div  class="relative group h-full">
     <div class="absolute w-full h-0 group-hover:h-full rounded-lg flex justify-center items-center z-20 overflow-hidden transition-all">
         <p class="text-lg font-semibold text-black"> Click to read more</p>
     </div>
@@ -25,9 +25,9 @@ console.log(postProps.post)
       class="w-full h-full bg-slate-100 hover:ring transition-all group-hover:blur-sm rounded-md z-10 p-3 space-y-5"
     >
     
-      <h3 class="text-2xl font-bold">{{ postProps.post.title }}</h3>
+      <h3 class="text-2xl font-bold truncate ">{{ postProps.post.title }}</h3>
 
-      <p class="break-all truncate">
+      <p class="truncate ">
        {{ postProps.post.body }}
       </p>
       <div class="w-full ">

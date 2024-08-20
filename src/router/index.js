@@ -54,7 +54,7 @@ const router = createRouter({
 
 router.beforeEach(async(to, from)=>{
   const auth = useAuthStore();
-  await auth.getUser();
+  await auth.getMemoUser();
 
   if(auth.user && to.meta.isGuest){
     return {name: 'home'};

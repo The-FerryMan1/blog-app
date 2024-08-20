@@ -4,12 +4,13 @@ import BlogHeader from '@/components/blog-header.vue'
 </script>
 
 <template>
-  
-     <main class=" grow  overflow-hidden">
-       <BlogHeader/>
-       <div class="h-screen w-full overflow-y-auto">
+    
+     <main class="h-screen w-full flex flex-col overflow-y-auto">
+       
+       
+          <BlogHeader/>
          <router-view></router-view>
-       </div>
+      
     
   </main>
  

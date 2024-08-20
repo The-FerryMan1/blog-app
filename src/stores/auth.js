@@ -11,21 +11,44 @@ export const useAuthStore = defineStore('auth', ()=>{
     const errorMessages = ref(null)
 
 
+    
+
+
     const getUser = async()=>{
+      let result;
       try {
         const res = await useAxios.get('user', {
            headers:{
             'Authorization': `Bearer ${localStorage.getItem('TOKEN')}`
           }
         });
-
+        result = res.data;
         
-        
-        user.value = res.data;
       } catch (error) {
         errorMessages.value = error.response.data.message;
       }
+      return result;
     }
+
+    const memoGetUser = () => {
+      let cachedUser = null;
+      
+      return async()=>{
+        if (cachedUser) {
+            console.log('fetching from cache');
+            return cachedUser;
+        }
+
+        try {
+           cachedUser =  await getUser()
+           user.value = cachedUser
+        } catch (error) {
+          console.log(error)
+        }
+      }
+    }
+
+    const getMemoUser = memoGetUser();
 
     const register = async(formData)=>{
           if(!formData) return;
@@ -105,6 +128,6 @@ export const useAuthStore = defineStore('auth', ()=>{
       }
     }
 
-    return {register, user, login, errorMessages, getUser, logout, changeDetails, changePassword};
+    return {register, user, login, errorMessages, logout, changeDetails, changePassword, getMemoUser};
 });
 

@@ -19,6 +19,30 @@ export const usePostStore = defineStore('post', ()=>{
         return post;
     }
 
+
+    const memoPost = ()=>{
+        let cachePost = null;
+
+        return async()=>{
+            if(cachePost){
+                console.log('fetching post from cache');
+                return cachePost;
+            }
+
+            try {
+                cachePost = await userGetPost();
+
+                return cachePost
+            } catch (error) {
+                console.log(error);
+            }
+
+
+        }
+    }
+
+    const getMemoPost = memoPost();
+
     const userGetPostOne = async(id)=>{
         let post = null;
         try {
@@ -31,6 +55,25 @@ export const usePostStore = defineStore('post', ()=>{
         return post;
     }
 
+    const memoOnePost = ()=>{
+        let cacheOnePost = {};
+
+        return async(id)=>{
+
+            if(cacheOnePost[id]){
+                console.log('fetching one post from cache');
+                return cacheOnePost[id];
+            }
+            try {
+                const onepost = await userGetPostOne(id);
+                cacheOnePost[id] = onepost;
+                return onepost;
+            } catch (error) {
+                console.log(error)
+            }
+        }
+    }
+    const getMemoOnePost = memoOnePost();
     const userPost = async(formData)=>{
 
         try {
@@ -73,5 +116,5 @@ export const usePostStore = defineStore('post', ()=>{
     }
 
 
-    return {errorPostMessages,userPost, userGetPost, userGetPostOne,userEditPost,userDeletePost};
+    return {errorPostMessages,userPost, userGetPost, userGetPostOne,userEditPost,userDeletePost, getMemoPost, getMemoOnePost};
 })

@@ -59,7 +59,7 @@ const handleSubmitChangePassword =async ()=>{
     <section class="h-screen w-full flex justify-center items-center">
         <div class="w-full h-full flex flex-col justify-start items-center">
            <h1 class="p-2 text-lg font-semibold text-red-500">{{ errorMessages }}</h1>
-            <div class="w-[40%] bg-white drop-shadow-lg p-3">
+            <div class="sm:w-[40%] w-full bg-white drop-shadow-lg p-3">
                 <form @submit.prevent="handleSubmitDetails" action="" class="grid grid-cols-1 place-items-start *:grid *:grid-cols-1 w-full "    >
                     <h2 class="mb-5 text-lg font-semibold">Changes Details</h2>
                     <div class="w-full">
