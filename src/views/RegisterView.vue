@@ -27,7 +27,7 @@ const handleSubmit = ()=>{
     <section class="h-screen w-full flex justify-center items-center">
         <div class="w-full h-full flex flex-col justify-center items-end">
 
-            <form @submit.prevent="handleSubmit" action="" class="grid grid-cols-1 place-items-start w-[70%]">
+            <form @submit.prevent="handleSubmit" action="" class="grid grid-cols-1 place-items-start p-3 w-full sm:w-[70%]">
                 <p v-if="errorMessages" class="text-red-500 text-nowrap my-2">{{ errorMessages }}</p>
                 <h2 class="text-2xl font-semibold self-start mb-10 text-green-500">Register account</h2>
                 <div class="flex flex-col mb-5 w-full">
@@ -58,7 +58,7 @@ const handleSubmit = ()=>{
                 
             </form>
         </div>
-        <div class="w-full h-full grid grid-cols-1 place-items-center">
+        <div class="w-full h-full hidden sm:grid grid-cols-1 place-items-center">
             <img src="https://cdn-icons-png.flaticon.com/512/4105/4105455.png" alt=""
                 class="w-[60%] h-[60%] object-contain drop-shadow-xl">
         </div>
