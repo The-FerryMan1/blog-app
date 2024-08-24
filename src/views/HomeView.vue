@@ -16,8 +16,8 @@ onMounted(async()=>{
 </script>
 
 <template>
-  <section class="grow w-full flex justify-center items-center">
-    <div class="w-full h-screen flex flex-col justify-start items-center">
+  <section class="h-screen w-full flex justify-center items-center overflow-y-auto  ">
+    <div class="w-full h-screen flex flex-col justify-start items-center p-4 my-10">
       <router-link v-if="user"
         class="p-2 bg-blue-500 rounded-md text-white active:ring hover:opacity-50 drop-shadow-lg self-start my-5 mx-5"
         :to="{ name: 'createPost' }"

@@ -19,11 +19,13 @@ const submitLogout = ()=>{
     open.value = false;
 }
 
+
 </script>
 
 
 <template>
-    <header id="header"class="w-full p-5 bg-white flex items-center sticky top-0 z-10 drop-shadow-lg">
+    <header id="header"class="w-full p-3 bg-white flex items-center sticky top-0 z-10 drop-shadow-lg">
+        
         <div v-once  class="me-auto">
             <router-link :to="{name: 'home'}" class="ms-10 text-2xl font-semibold tracking-widest p-2">BulagBlog</router-link>
         </div>
@@ -33,6 +35,11 @@ const submitLogout = ()=>{
                 <li>
                     <router-link :to="{ name: 'home' }" active-class="text-red-500 " class="p-2 hover:underline underline-offset-4 transition-all">
                         Home
+                    </router-link>
+                </li>
+                <li v-show="user?.role?.permission  === '0755'">
+                    <router-link :to="{ name: 'admin-dash' }" active-class="text-red-500 " class="p-2 hover:underline underline-offset-4 transition-all">
+                        Dashboard
                     </router-link>
                 </li>
                 <div v-if="user" class="flex text-base space-x-10 ">

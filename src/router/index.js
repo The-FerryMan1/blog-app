@@ -43,6 +43,42 @@ const routes = [
     component: ()=> import('@/views/profileSettingsView.vue'),
     meta: {reqAuth: true}
   },
+  {
+    path: '/dashboard',
+    component: ()=>import('@/views/AdminPanelView.vue'),
+    meta: {isAdmin: true},
+    children: [
+      {
+        path: '',
+        name: 'admin-dash',
+        component: ()=>import('@/views/AdminDashView.vue'),
+        meta: {isAdmin: true},
+      },
+      {
+        path: 'Admin-Post',
+        name: 'Admin-Post',
+        component: ()=>import('@/views/AdminPostView.vue'),
+        meta: {isAdmin: true},
+      },
+      {
+        path: 'Admin-userList',
+        name: 'Admin-userList',
+        component: ()=>import('@/views/UserListView.vue'),
+        meta: {isAdmin: true},
+      },
+      {
+        path: 'Admin-activityLogs',
+        name: 'Admin-activityLogs',
+        component: ()=>import('@/views/ActivityLogsView.vue'),
+        meta: {isAdmin: true},
+      },
+    ]
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: "404Page",
+    component: ()=>import('@/views/404View.vue'),
+  }
 
 
 
@@ -62,6 +98,10 @@ router.beforeEach(async(to, from)=>{
 
   if(!auth.user && to.meta.reqAuth){
      return {name: 'login'};
+  }
+
+  if(auth.user?.role?.permission !== '0755' && to.meta.isAdmin){
+    return {name: '404Page'};
   }
 })
 

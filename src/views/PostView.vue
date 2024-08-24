@@ -36,7 +36,7 @@ const goBackButton = ()=>{
 <template>
    
     <button @click="goBackButton" class="me-auto p-2 ms-9 my-5 bg-blue-500 rounded-md text-white">Go back</button>
-   <section class="w-full flex justify-center items-center">
+   <section class="w-full flex justify-center items-center overflow-y-auto">
     <div v-if="post" class="w-full flex flex-col justify-start items-start p-4">
         <div class="w-full flex  flex-col items-start">
             <h1 class="sm:text-4xl break-all text-2xl ms-5 font-semibold"> {{ post?.post?.title }}</h1>

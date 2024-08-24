@@ -8,8 +8,8 @@ export const useAuthStore = defineStore('auth', ()=>{
     const router = useRouter();
 
     const user = ref(null);
-    const errorMessages = ref(null)
-
+    const errorMessages = ref(null);
+    const successMessage = ref(null);
 
     
 
@@ -88,7 +88,7 @@ export const useAuthStore = defineStore('auth', ()=>{
                 }
             });
              userTemp = res.data.user
-           
+              successMessage.value = res.data.message
              router.push({name: 'profile'});
         } catch (error) {
           console.log(error);
@@ -128,6 +128,6 @@ export const useAuthStore = defineStore('auth', ()=>{
       }
     }
 
-    return {register, user, login, errorMessages, logout, changeDetails, changePassword, getMemoUser};
+    return {register, user, login, errorMessages, logout, changeDetails, changePassword, getMemoUser, successMessage};
 });
 

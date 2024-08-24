@@ -5,10 +5,10 @@ import BlogHeader from '@/components/blog-header.vue'
 
 <template>
     
-     <main class="h-screen w-full flex flex-col overflow-y-auto">
+     <main class="h-screen w-full flex flex-col overflow-hidden">
+           <BlogHeader/>
        
-       
-          <BlogHeader/>
+         
          <router-view></router-view>
       
     

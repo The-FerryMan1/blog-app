@@ -27,7 +27,7 @@ const handleSubmit = () =>{
 <template>
    
   
-   <section class="h-screen w-full flex justify-center items-center">
+   <section class="h-screen w-full flex justify-center items-center overflow-y-auto">
     <div class="w-full h-full flex flex-col justify-start items-center">
         <form @submit.prevent="handleSubmit" action="" class="grid grid-cols-1 w-full sm:w-1/2 p-2">
             <p v-if="errorPostMessages" class="text-red-500 text-nowrap my-2">{{ errorPostMessages }}</p>

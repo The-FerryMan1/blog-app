@@ -27,7 +27,7 @@ const handleSubmit = ()=>{
 </script>
 
 <template>
-     <section class="h-screen w-full flex justify-center items-center">
+     <section class="h-screen w-full flex justify-center items-center overflow-y-auto">
          <div class="w-full h-full flex flex-col justify-center items-end">
            
             <form @submit.prevent="handleSubmit" action="" class="grid grid-cols-1 place-items-start p-3 w-full sm:w-[70%]">
